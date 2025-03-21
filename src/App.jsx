@@ -4,11 +4,16 @@ import BookView from "./components/BookView";
 function App() {
   return (
     <>
-      <div>
-        <h1>Books Library App</h1>
-        <br />
-        <BookForm />
-        <BookView />
+      <div className="container mt-4">
+        <h1 className="text-center text-primary">Books Library App</h1>
+        <div className="row">
+          <div className="col-md-6">
+            <BookForm />
+          </div>
+          <div className="col-md-6">
+            <BookView />
+          </div>
+        </div>
       </div>
     </>
   );

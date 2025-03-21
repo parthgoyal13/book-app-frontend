@@ -10,12 +10,16 @@ const BookView = () => {
     dispatch(fetchBooks());
   }, [dispatch]);
 
-  if (status === "loading") return <p>Loading...</p>;
-  if (status === "failed") return <p>Error: {error}</p>;
-
   return (
-    <div>
-      <BookList books={books} />
+    <div className="card p-4 shadow">
+      <h2 className="text-center">Book List</h2>
+      {status === "loading" ? (
+        <p className="text-center text-warning">Loading...</p>
+      ) : status === "failed" ? (
+        <p className="text-center text-danger">Error: {error}</p>
+      ) : (
+        <BookList books={books} />
+      )}
     </div>
   );
 };

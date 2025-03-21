@@ -18,18 +18,32 @@ const BookList = ({ books }) => {
 
   return (
     <div>
-      <h2>Book List</h2>
       {books.length === 0 ? (
-        <p>No books available</p>
+        <p className="text-center text-muted">No books available</p>
       ) : (
-        <ul>
+        <ul className="list-group">
           {books.map((book) => (
-            <li key={book._id}>
-              <strong>{book.title}</strong> by {book.author} -{book.genre}
-              <button onClick={() => handleDelete(book._id)}>
-                Delete
-              </button>{" "}
-              <button onClick={() => handleEdit(book)}>Edit</button>
+            <li
+              key={book._id}
+              className="list-group-item d-flex justify-content-between align-items-center"
+            >
+              <div>
+                <strong>{book.title}</strong> by {book.author} - {book.genre}
+              </div>
+              <div>
+                <button
+                  className="btn btn-danger btn-sm me-2"
+                  onClick={() => handleDelete(book._id)}
+                >
+                  Delete
+                </button>
+                <button
+                  className="btn btn-warning btn-sm"
+                  onClick={() => handleEdit(book)}
+                >
+                  Edit
+                </button>
+              </div>
             </li>
           ))}
         </ul>
